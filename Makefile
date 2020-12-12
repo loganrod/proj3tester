@@ -1,13 +1,13 @@
 SRC := \
-	lexer.c \
-	parser.tab.c \
-	typecheck.c \
-	codegen.c \
-	table.c \
-	ast.c \
-	ast_printer.c \
-	util.c \
-	main.c
+  lexer.c \
+  codegen.c \
+  typecheck.c \
+  parser.tab.c \
+  table.c \
+  ast.c \
+  ast_printer.c \
+  util.c \
+  main.c
 
 OBJ := $(SRC:%.c=%.o)
 
@@ -18,7 +18,7 @@ PRG := simplec
 all: simplec
 
 simplec: $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^ 
 
 parser.tab.c: parser.y ast.c
 	bison -d -v parser.y
@@ -31,3 +31,4 @@ lexer.c: lexer.l parser.tab.c
 
 clean:
 	rm -f $(OBJ) parser.tab.c parser.tab.h parser.output lexer.c simplec
+
