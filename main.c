@@ -4,6 +4,8 @@
 
 #include "ast_printer.h"
 
+#include "codegen.c"
+
 #include "parser.tab.h"
 
 #include "typecheck.h"
@@ -23,8 +25,9 @@ int main(int argc, char **argv) {
   // kick off the parser, which will store the result in program_ast
   yyparse();
 
-  check_prog( program_ast );
+  //check_prog( program_ast );
 
   // print the ast
-  print_prog(program_ast, 0);
+  //print_prog(program_ast, 0);
+  codegen( program_ast );
 }
